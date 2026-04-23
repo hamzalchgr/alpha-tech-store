@@ -4,6 +4,7 @@
   /* ---- COLORS ---- */
   --color-accent: #fa5b05;
   --color-primary: #1c1c1c;
+  --color-primary-hover: #333336;
   --color-secondary: #737373;
   --color-surface: #ffffff;
   --color-surface-glass: #ffffff66;
@@ -23,5 +24,52 @@
     background-color: var(--color-surface-muted);
   }
 
-  
+  *, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  li {
+    all: unset;
+  }
+}
+
+@layer components {
+  .padding-x {
+    @apply px-4 md:px-10 lg:px-20;
+  }
+
+
+  /* Header */
+  header {
+    @apply fixed top-0 w-full bg-surface-glass overflow-hidden;
+  }
+
+  .nav-bar {
+    @apply flex items-center justify-between w-full;
+  }
+
+  .nav-list {
+    @apply absolute w-full left-0 px-4 md:px-0 top-10 md:static md:flex md:gap-5 transition-all duration-500;
+  }
+
+  .nav-link {
+    @apply md:text-sm font-semibold py-2 relative transition-all duration-200 hover:text-primary-hover;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-1/2 h-0.5 bg-primary-hover w-0 transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full left-0;
+  }
+
+
+
+  /* UI / button */
+  .btn {
+    @apply h-10 w-10 flex items-center justify-center hover:text-primary-hover cursor-pointer transition-all duration-200;
+  }
 }
