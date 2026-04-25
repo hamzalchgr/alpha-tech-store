@@ -19,7 +19,8 @@
   }
 
   body {
-    font-family: "Mona Sans", sans-serif;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
     color: var(--color-primary);
     background-color: var(--color-surface-muted);
   }
@@ -33,6 +34,24 @@
   li {
     all: unset;
   }
+
+
+  /* Heading */
+  h1, h2, h3, h4 {
+    @apply tracking-tight leading-normal;
+  }
+
+  p {
+    @apply leading-tight
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  .heading-2 {
+    @apply font-bold md:text-xl lg:text-2xl
+  }
 }
 
 @layer components {
@@ -43,23 +62,27 @@
 
   /* Header */
   header {
-    @apply fixed top-0 w-full bg-surface-glass overflow-hidden;
+    @apply bg-surface-glass backdrop-blur-lg transition-all ease-in-out duration-500 overflow-hidden;
   }
 
   .nav-bar {
     @apply flex items-center justify-between w-full;
   }
 
+  .nav-list-wrapper {
+    @apply absolute flex top-10 md:static w-full left-0 transition-all duration-500;
+  }
+
   .nav-list {
-    @apply absolute w-full left-0 px-4 md:px-0 top-10 md:static md:flex md:gap-5 transition-all duration-500;
+    @apply px-4 md:px-0 flex flex-col md:flex-row md:gap-5;
   }
 
   .nav-link {
-    @apply md:text-sm font-semibold py-2 relative transition-all duration-200 hover:text-primary-hover;
+    @apply md:text-sm font-semibold py-3 relative transition-all duration-200 hover:text-primary-hover;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-1/2 h-0.5 bg-primary-hover w-0 transition-all duration-200;
+    @apply content-[''] absolute bottom-0 left-1/2 h-[1.5px] bg-primary-hover w-0 transition-all duration-200;
   }
 
   .nav-link:hover::after {
@@ -69,7 +92,28 @@
 
 
   /* UI / button */
-  .btn {
-    @apply h-10 w-10 flex items-center justify-center hover:text-primary-hover cursor-pointer transition-all duration-200;
+    .quantity-btn {
+      @apply w-5.5 h-[14px] grid place-items-center ring ring-primary;
+    }
+
+    .btn-outline {
+      @apply w-full text-xs leading-5 p-2 ring ring-primary font-medium uppercase;
+    }
+
+    .btn-primary {
+      @apply w-full text-xs leading-5 p-2 bg-primary text-white font-medium uppercase
+    }
+
+  /* PRODUCT PAGE */
+  .product-info-container {
+    @apply flex flex-col gap-7 py-5 sticky top-17 font-medium self-start px-4 md:px-0;
+
+    .discount-perscent {
+      @apply p-1 rounded-full ring ring-accent text-accent text-xs leading-none font-semibold tracking-tight;
+    }
+
+    .quantity-input {
+      @apply h-9 w-11 text-sm font-bold ring ring-primary grid place-items-center focus:outline-0 focus:ring-2;
+    }
   }
 }

@@ -11,7 +11,9 @@ const Header = () => {
 
   return (
     <>
-      <header className={clsx("padding-x", menuOpen ? "h-full" : "h-fit")}>
+      <header className={clsx("padding-x",
+        menuOpen && " fixed top-0 w-full z-50 h-full"
+      )}>
         <nav className="nav-bar">
           <div className="flex gap-5 items-center">
             <Link
@@ -21,15 +23,16 @@ const Header = () => {
               alpha
             </Link>
 
-            <ul
-              id="nav-list"
-              className={clsx(
-                "nav-list",
+            <div id="nav-wrapper" 
+              aria-hidden={!menuOpen} className={clsx(
+                "nav-list-wrapper",
                 menuOpen
-                  ? "h-full opacity-100"
-                  : "h-fit opacity-0 md:opacity-100",
-              )}
-              aria-hidden={!menuOpen}
+                  ? "opacity-100"
+                  : "opacity-0 md:opacity-100",
+              )}>
+            <ul
+              className="nav-list"
+              aria-label="navigation links"
             >
               {NAV_LINKS.map(({ id, label, href }) => (
                 <li key={id} className="flex items-center">
@@ -39,6 +42,8 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            </div>
+
           </div>
 
           <div className="flex">
@@ -57,7 +62,7 @@ const Header = () => {
             <button
               className="btn md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-controls="nav-list"
+              aria-controls="nav-wrapper"
               aria-expanded={menuOpen}
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
