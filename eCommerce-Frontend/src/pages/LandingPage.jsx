@@ -28,11 +28,32 @@ const PDT_TST = {
     "https://framerusercontent.com/images/e2DVlkqDSuFd8WbPvElHPC82s.png?scale-down-to=1024&width=2000&height=2000",
     "https://framerusercontent.com/images/zR90gf9IgdCqxUdz77LIHFhzI.png?scale-down-to=1024&width=2000&height=2000",
   ],
-  attributes: {
-    color: "Black",
-    batteryLife: "30h",
-    connectivity: "Bluetooth",
-  },
+  attributes: [
+    {
+      attName: "color",
+      attContent: "white",
+    },
+    {
+      attName: "battery_life",
+      attContent: "up to 80 hours (35 hours with ANC)",
+    },
+    {
+      attName: "noise_cancellation",
+      attContent: "adaptive active noise cancellation (up to 42 dB)",
+    },
+    {
+      attName: "driver",
+      attContent: "40mm dynamic drivers",
+    },
+    {
+      attName: "connectivity",
+      attContent: "bluetooth 5.3 with ldac and dual-device pairing",
+    },
+    {
+      attName: "water_resistance",
+      attContent: "ip52 rating",
+    },
+  ],
   tags: ["wireless", "audio", "headphones"],
 };
 
@@ -40,7 +61,8 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col">
       <div className="padding-x py-4 border-b border-surface bg-surface-glass sticky z-20 top-0 backdrop-blur-lg">
-        <h2 className="md:text-xl font-bold tracking-tight">{PDT_TST.name}</h2></div>
+        <h2 className="md:text-xl font-bold tracking-tight">{PDT_TST.name}</h2>
+      </div>
 
       <section className="relative grid gap-4 md:grid-cols-2 md:gap-10 lg:gap-20 md:px-10 lg:px-20">
         <div className="">

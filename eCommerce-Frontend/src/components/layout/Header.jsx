@@ -47,20 +47,20 @@ const Header = () => {
           </div>
 
           <div className="flex">
-            <button className="btn">
+            <button className="icon-btn">
               <Search size={20} />
             </button>
 
-            <Link to="/cartPage" className="btn">
+            <Link to="/cartPage" className="icon-btn">
               <ShoppingBag size={20} />
             </Link>
 
-            <Link to="/accountPage" className="btn">
+            <Link to="/accountPage" className="icon-btn">
               <User size={20} />
             </Link>
 
             <button
-              className="btn md:hidden"
+              className="icon-btn md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-controls="nav-wrapper"
               aria-expanded={menuOpen}

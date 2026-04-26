@@ -8,10 +8,8 @@
   --color-secondary: #737373;
   --color-surface: #ffffff;
   --color-surface-glass: #ffffff66;
-  --color-surface-muted: #f2f2f2
-
+  --color-surface-muted: #f2f2f2;
 }
-
 
 @layer base {
   html {
@@ -25,7 +23,9 @@
     background-color: var(--color-surface-muted);
   }
 
-  *, *::after, *::before {
+  *,
+  *::after,
+  *::before {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -35,14 +35,16 @@
     all: unset;
   }
 
-
   /* Heading */
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply tracking-tight leading-normal;
   }
 
   p {
-    @apply leading-tight
+    @apply leading-tight;
   }
 
   button {
@@ -50,7 +52,15 @@
   }
 
   .heading-2 {
-    @apply font-bold md:text-xl lg:text-2xl
+    @apply font-bold md:text-xl lg:text-2xl;
+  }
+
+  .img-container {
+    @apply h-full w-full overflow-hidden;
+
+    img {
+      @apply h-full w-full object-center object-cover;
+    }
   }
 }
 
@@ -58,7 +68,6 @@
   .padding-x {
     @apply px-4 md:px-10 lg:px-20;
   }
-
 
   /* Header */
   header {
@@ -89,20 +98,26 @@
     @apply w-full left-0;
   }
 
-
-
   /* UI / button */
-    .quantity-btn {
-      @apply w-5.5 h-[14px] grid place-items-center ring ring-primary;
-    }
+  .icon-btn {
+    @apply h-11 w-11 grid place-items-center hover:text-primary-hover;
+  }
 
-    .btn-outline {
-      @apply w-full text-xs leading-5 p-2 ring ring-primary font-medium uppercase;
-    }
+  .quantity-btn {
+    @apply w-5.5 h-3.5 grid place-items-center ring ring-primary;
+  }
 
-    .btn-primary {
-      @apply w-full text-xs leading-5 p-2 bg-primary text-white font-medium uppercase
-    }
+  .btn-outline {
+    @apply w-full text-xs leading-5 p-2 ring ring-primary font-medium uppercase;
+  }
+
+  .btn-primary {
+    @apply w-full text-xs leading-5 p-2 bg-primary text-white font-medium uppercase;
+  }
+
+  .toggle-btn {
+    @apply h-10 w-10 rounded-full bg-surface-muted grid place-items-center;
+  }
 
   /* PRODUCT PAGE */
   .product-info-container {

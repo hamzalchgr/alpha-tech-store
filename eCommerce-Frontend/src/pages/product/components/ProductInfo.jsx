@@ -1,32 +1,28 @@
 import { Link } from "react-router-dom";
-import {
-  ChevronDown,
-  ChevronRight,
-  ChevronUp,
-  Minus,
-  Plus,
-} from "lucide-react";
+import { ChevronDown, ChevronRight, ChevronUp, Plus } from "lucide-react";
 import { formatPrice } from "../../../utils/priceFormat";
 import useQuantity from "../hooks/useQuantity";
+import Accordion from "./Accordion";
+import useAccordion from "../hooks/useAccordion";
 
 const ProductInfo = ({ pdt }) => {
   const { quantity, increaseQnt, decreaseQnt, handleChange } = useQuantity();
 
+  const { openAcc, toggleAcc } = useAccordion();
   return (
     <div className="product-info-container">
       <div className="uppercase text-xs">
         <p className="flex gap-2 items-center">
           <Link to="/">home</Link> <ChevronRight size={14} />{" "}
-          <Link to={`/store/audio`}>{pdt.category}</Link>{" "}
-          <Link>{pdt.name}</Link>
+          <Link to={`/store/${pdt.category}`}>{pdt.category}</Link>{" "}
+          <Link to={`/landingPage/${pdt.id}`}>{pdt.name}</Link>
         </p>
         <h2 className="font-bold text-base">Buy {pdt.name}</h2>
-        <p className="mt-2.5">WVPA35423</p>
+        <p className="mt-2.5">{pdt.id}</p>
       </div>
 
       <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
-
           {/* PDT price */}
           <p className="flex items-center gap-4 w-full">
             <span className="font-bold">PRICE</span>
@@ -103,36 +99,48 @@ const ProductInfo = ({ pdt }) => {
 
       {/* CTA */}
       <div className="flex flex-col gap-2">
-        <button className="btn-outline">
-          official site
-        </button>
-        <button className="btn-primary">
-          add to cart
-        </button>
+        <button className="btn-outline">official site</button>
+        <button className="btn-primary">add to cart</button>
       </div>
 
       {/* PRODUCT INFORMATION */}
       <div>
-        <div>
-          <div className="font-bold flex items-center justify-between text-sm py-1 leading-5">
-            <span>INFORMATION</span>
-            <Minus size={14} />
-          </div>
-          <div className="text-xs flex flex-col gap-2 items-start py-3 pr-10">
+        <Accordion
+          accLabel="INFORMATION"
+          toggleAcc={() => toggleAcc("INFORMATION")}
+          openAcc={openAcc}
+        >
             <p>{pdt.description}</p>
-            <button className="font-bold cursor-pointer underline uppercase">
-              more information
-            </button>
-          </div>
-        </div>
-        <div className="font-bold flex items-center justify-between text-sm py-1 leading-5">
-          <span>REFUND & EXCHANGE</span>
-          <Plus size={14} />
-        </div>
-        <div className="font-bold flex items-center justify-between text-sm py-1 leading-5">
-          <span>SHIPPING</span>
-          <Plus size={14} />
-        </div>
+            <ul className="flex flex-col gap-1">
+              {pdt.attributes.map((att) => (
+                <li key={att.attName}>
+                  <p><span className="font-semibold capitalize">{att.attName}</span>: {att.attContent}</p>
+                </li>
+              ))}
+            </ul>
+        </Accordion>
+
+        <Accordion
+          accLabel="REFUND & EXCHANGE"
+          toggleAcc={() => toggleAcc("REFUND & EXCHANGE")}
+          openAcc={openAcc}
+        >
+            <p>
+              If you wish to return an item to <strong>Alpha Tech Store</strong>, please send
+              it to the address provided by our support team after initiating
+              your return request. <br/><br/><strong>Return Guidelines:</strong> <br/>1. All returns and
+              exchanges are the responsibility of the customer, including
+              shipping costs. You may use any courier service available in your
+              area. <br/>2. If you would like a different size, color, or product,
+              please place a new order through our website. <br/>3. Be sure to keep
+              your proof of postage receipt until your return has been processed
+              and confirmed. <br/>4. If you receive a defective item or are not
+              satisfied with the quality, please contact our customer support
+              team as soon as possible. We are committed to resolving any issues
+              quickly and efficiently. You can reach us via email or through the
+              contact options on our website.
+            </p>
+        </Accordion>
       </div>
     </div>
   );
