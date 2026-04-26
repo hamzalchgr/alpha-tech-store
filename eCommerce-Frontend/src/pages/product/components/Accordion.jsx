@@ -14,7 +14,7 @@ const Accordion = ({ openAcc, toggleAcc, accLabel, children }) => {
         {openAcc === accLabel ? <Minus size={14} /> : <Plus size={14} />}
       </button>
       <div className={clsx(
-        "text-xs flex flex-col gap-2 items-start pr-10 overflow-hidden transition-all duration-300",
+        "flex flex-col gap-2 items-start pr-10 overflow-hidden transition-all duration-300",
         openAcc !== accLabel ? "h-0 py-0" : "h-auto py-3",
       )}>{children}</div>
       

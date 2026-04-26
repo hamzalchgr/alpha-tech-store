@@ -1,6 +1,7 @@
-import ImgSlider from "./product/components/ImgSlider";
-import PageHeader from "./product/components/PageHeader";
-import ProductInfo from "./product/components/ProductInfo";
+import ImgSlider from "./components/ImgSlider";
+import PageHeader from "./components/PageHeader";
+import ProductInfo from "./components/ProductInfo";
+import ProductCard from "../../components/product/ProductCard";
 
 const PDT_TST = {
   id: "WVPA35423",
@@ -59,8 +60,8 @@ const PDT_TST = {
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col">
-      <div className="padding-x py-4 border-b border-surface bg-surface-glass sticky z-20 top-0 backdrop-blur-lg">
+    <div className="flex flex-col gap-10">
+      <div className="padding-x landingPage-Header">
         <h2 className="md:text-xl font-bold tracking-tight">{PDT_TST.name}</h2>
       </div>
 
@@ -84,7 +85,14 @@ const LandingPage = () => {
         <ProductInfo pdt={PDT_TST} />
       </section>
 
-      <section>related products</section>
+      <section className="padding-x flex flex-col gap-2">
+        <h2 className="heading-2">recommended items</h2>
+        <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+          <li>
+            <ProductCard />
+          </li>
+        </ul>
+      </section>
     </div>
   );
 };

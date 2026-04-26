@@ -11,6 +11,7 @@
   --color-surface-muted: #f2f2f2;
 }
 
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -34,6 +35,7 @@
   li {
     all: unset;
   }
+  
 
   /* Heading */
   h1,
@@ -52,7 +54,7 @@
   }
 
   .heading-2 {
-    @apply font-bold md:text-xl lg:text-2xl;
+    @apply font-bold md:text-xl lg:text-2xl capitalize;
   }
 
   .img-container {
@@ -120,6 +122,10 @@
   }
 
   /* PRODUCT PAGE */
+  .landingPage-Header {
+    @apply py-4 border-b border-surface bg-surface-glass sticky z-20 top-0 backdrop-blur-lg;
+  }
+
   .product-info-container {
     @apply flex flex-col gap-7 py-5 sticky top-17 font-medium self-start px-4 md:px-0;
 

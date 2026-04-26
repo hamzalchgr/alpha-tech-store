@@ -57,8 +57,8 @@ const ProductInfo = ({ pdt }) => {
           Quantity
           <input
             id="input"
-            className="quantity-input"
-            type="text"
+            className="quantity-input appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            type="number"
             value={quantity}
             onChange={(e) => handleChange(e)}
           />
