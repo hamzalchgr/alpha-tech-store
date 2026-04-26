@@ -5,6 +5,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import LandingPage from "./pages/product/LandingPage";
 import AuthPage from "./pages/authentication/AuthPage";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/accountPage" element={<AuthPage />} />
         <Route path="/landingPage/:id" element={<LandingPage />} />
       </Route>
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };
