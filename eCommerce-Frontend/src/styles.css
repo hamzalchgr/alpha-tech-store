@@ -137,4 +137,9 @@
       @apply h-9 w-11 text-sm font-bold ring ring-primary grid place-items-center focus:outline-0 focus:ring-2;
     }
   }
+
+
+  .form-input {
+    @apply h-10 w-full ring-primary ring-[0.1px] focus:ring-1 focus:outline-none px-3
+  }
 }
