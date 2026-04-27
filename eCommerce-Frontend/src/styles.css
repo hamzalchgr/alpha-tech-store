@@ -132,11 +132,11 @@
     .discount-perscent {
       @apply p-1 rounded-full ring ring-accent text-accent text-xs leading-none font-semibold tracking-tight;
     }
-
-    .quantity-input {
-      @apply h-9 w-11 text-sm font-bold ring ring-primary grid place-items-center focus:outline-0 focus:ring-2;
-    }
   }
+  
+      .quantity-input {
+        @apply h-9 w-11 text-sm font-bold ring ring-primary grid place-items-center focus:outline-0 focus:ring-2;
+      }
 
 
   .form-input {
